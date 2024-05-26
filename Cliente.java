@@ -5,10 +5,14 @@ public class Cliente {
     private String nombre;
     private String direccion;
 
-    public Cliente(String identificador, String nombre, String direccion) {
+    //4 AÑADIMOS LA VARIABLE CUENTA AL CONSTRUCTOR Y A LA CLASE
+    private Cuenta cuenta;
+
+    public Cliente(String identificador, String nombre, String direccion, Cuenta cuenta) {
         this.identificador = identificador;
         this.nombre = nombre;
         this.direccion = direccion;
+        this.cuenta=cuenta;
     }
 
     public String getIdentificador() {
