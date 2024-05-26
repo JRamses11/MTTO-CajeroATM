@@ -1,20 +1,39 @@
 package Proyecto_Terminado;
-
+import java.time.LocalDate;
 import java.util.Scanner;
+import java.util.UUID;
 public abstract class Clase_Abstractaa {
-	String numero_cuenta;
-    protected int transacciones, retiro, deposito,transferencia;
+    //2. AÑADIMOS LAS VARIABLES idTransaccion, fecha, tipoTransaccion, cuentaDestino y un metodo para desvolver el id y fecha
+    protected String numero_cuenta;
+    protected int transacciones, retiro, deposito, transferencia;
     private static int saldo;
+    protected String idTransaccion;
+    protected LocalDate fecha;
+    protected String tipoTransaccion;
+    protected String cuentaDestino;
+
+    //3.AÑADIMOS LA VARIABLE TARJETA DE DEBITO Y UN METODO
+    protected TarjetaDebito tarjetaDebito;
+
+    public Clase_Abstractaa(TarjetaDebito tarjetaDebito) {
+        this.tarjetaDebito = tarjetaDebito;
+    }
+    public Clase_Abstractaa() {
+        this.idTransaccion = UUID.randomUUID().toString();
+        this.fecha = LocalDate.now();
+    }
+
     Scanner entrada = new Scanner(System.in);
 
     public void Operaciones() {
         int bandera = 0;
         int seleccion = 0;
         String Nombre = "";
+        LocalDate fechaActual = LocalDate.now();
         do {
             do {
-                System.out.println(" Buenas tardes esta en un cajero automatico de BBVA");
-                System.out.println(" Hoy es 31/10/2023");
+                System.out.println(" Buenas tardes que operacion desea realizar");
+                System.out.println(fechaActual);
                 System.out.println(" Porfavor seleccione una opción:");
                 System.out.println("    1. Consulta de saldo.");
                 System.out.println("    2. Retiro de efectivo.");

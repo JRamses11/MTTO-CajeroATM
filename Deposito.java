@@ -1,6 +1,6 @@
 package Proyecto_Terminado;
 
-import Proyecto.ClasePadre_Abstracta;
+//import Proyecto.ClasePadre_Abstracta;
 
 public class Deposito extends Clase_Abstractaa{
     
@@ -12,7 +12,6 @@ public class Deposito extends Clase_Abstractaa{
         transacciones = getSaldo();
         setSaldo(transacciones + deposito);
         System.out.println("===================================");
-        System.out.println("=================BBVA===============");
         System.out.println("				Debito				");
         System.out.println("Depositaste: " + deposito);
         System.out.println("Tu saldo actual es: " + getSaldo());
