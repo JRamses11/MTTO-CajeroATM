@@ -18,6 +18,7 @@ public abstract class Clase_Abstractaa {
     public Clase_Abstractaa(TarjetaDebito tarjetaDebito) {
         this.tarjetaDebito = tarjetaDebito;
     }
+    
     public Clase_Abstractaa() {
         this.idTransaccion = UUID.randomUUID().toString();
         this.fecha = LocalDate.now();
