@@ -4,11 +4,13 @@ public class CuentaCheques implements Cuenta{
     private String tipo;
     private Cliente cliente;
     private String numeroCuenta;
+    private int saldo;
 
-    public CuentaCheques(Cliente cliente, String numeroCuenta) {
+    public CuentaCheques(Cliente cliente, String numeroCuenta, int saldo) {
         this.tipo = "Cuenta de Cheques";
         this.cliente = cliente;
         this.numeroCuenta = numeroCuenta;
+        this.saldo = saldo;
     }
 
     @Override
@@ -24,6 +26,15 @@ public class CuentaCheques implements Cuenta{
     @Override
     public String getNumeroCuenta() {
         return numeroCuenta;
+    }
+
+    @Override
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
     }
 
     public void setTipo(String tipo) {
@@ -44,6 +55,7 @@ public class CuentaCheques implements Cuenta{
                 "tipo='" + tipo + '\'' +
                 ", cliente=" + cliente +
                 ", numeroCuenta='" + numeroCuenta + '\'' +
+                ", saldo=" + saldo +
                 '}';
     }
 }

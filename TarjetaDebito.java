@@ -4,11 +4,13 @@ import java.util.Random;
 
 public class TarjetaDebito {
     private String numTarjeta;
+    private String nip;
     private Cuenta cuenta;
     private Cliente cliente;
 
     public TarjetaDebito(Cuenta cuenta, Cliente cliente) {
         this.numTarjeta=generarNumeracionTarjeta();
+        this.nip=generarNip();
         this.cuenta = cuenta;
         this.cliente = cliente;
     }
@@ -25,6 +27,12 @@ public class TarjetaDebito {
         return creditCardNumber.toString();
     }
 
+    public static String generarNip() {
+        Random random = new Random();
+        int nip = random.nextInt(10000); // Genera un número entre 0 y 9999
+        return String.format("%04d", nip); // Asegura que el NIP tenga 4 dígitos, incluyendo ceros a la izquierda
+    }
+
     public String getNumTarjeta() {
         return numTarjeta;
     }
@@ -33,24 +41,35 @@ public class TarjetaDebito {
         this.numTarjeta = numTarjeta;
     }
 
-    public Cuenta getCuenta(){
+    public String getNip() {
+        return nip;
+    }
+
+    public void setNip(String nip) {
+        this.nip = nip;
+    }
+
+    public Cuenta getCuenta() {
         return cuenta;
     }
-    public void setCuenta(Cuenta cuenta){
-        this.cuenta=cuenta;
+
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
     }
-    public Cliente getCliente(){
+
+    public Cliente getCliente() {
         return cliente;
     }
-    public void setCliente(Cliente cliente){
-        this.cliente=cliente;
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     @Override
     public String toString() {
         return "TarjetaDebito:" +
-                "Numero de Tarjeta=" + numTarjeta +
+                "Numero de Tarjeta:" + numTarjeta + "\tNIP:"+nip+
                 "\nCliente: Nombre:" + cliente.getNombre() +"\tDireccion:"+cliente.getDireccion()+"\tBanco:"+cliente.getBanco()+"\tIdentificador:"+cliente.getIdentificador()+
-                "\nCuenta: Tipo:" + cuenta.getTipo() + "\tNumero de Cuenta:"+cuenta.getNumeroCuenta();
+                "\nCuenta: Saldo:"+cuenta.getSaldo()+"\tTipo:" + cuenta.getTipo() + "\tNumero de Cuenta:"+cuenta.getNumeroCuenta();
     }
 }

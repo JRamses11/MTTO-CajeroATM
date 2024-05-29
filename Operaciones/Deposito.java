@@ -1,8 +1,12 @@
-package Proyecto_Terminado;
+package Proyecto_Terminado.Operaciones;
 
 //import Proyecto.ClasePadre_Abstracta;
 
-public class Deposito extends Clase_Abstractaa{
+import Proyecto_Terminado.Clase_Abstractaa;
+import Proyecto_Terminado.Cuenta;
+import Proyecto_Terminado.TarjetaDebito;
+
+public class Deposito extends Clase_Abstractaa {
     
     @Override
     public void Transacciones(){
@@ -17,5 +21,13 @@ public class Deposito extends Clase_Abstractaa{
         System.out.println("Tu saldo actual es: " + getSaldo());
         System.out.println("===================================");
     }
-    
+
+    @Override
+    public void Retirar(Cuenta cuenta, String tipo, int monto) {
+    }
+
+    @Override
+    public void Transferir(Cuenta cuenta, TarjetaDebito tarjetaDestino, String transferencia, int retiro) {
+
+    }
 }
