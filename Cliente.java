@@ -1,27 +1,27 @@
 package Proyecto_Terminado;
 
+import java.util.UUID;
+
 public class Cliente {
     private String identificador;
     private String nombre;
     private String direccion;
+    private String banco;
 
-    //4 AÑADIMOS LA VARIABLE CUENTA AL CONSTRUCTOR Y A LA CLASE
-    private Cuenta cuenta;
-
-    public Cliente(String identificador, String nombre, String direccion, Cuenta cuenta) {
-        this.identificador = identificador;
+    public Cliente(String nombre, String direccion, String banco) {
+        this.banco = banco;
+        this.identificador = generarIdUnico();;
         this.nombre = nombre;
         this.direccion = direccion;
-        this.cuenta=cuenta;
+    }
+
+    private String generarIdUnico() {
+        return UUID.randomUUID().toString();
     }
 
     public String getIdentificador() {
         return identificador;
     }
-    public void setIdentificador(String identificador){
-        this.identificador=identificador;
-    }
-
     public String getNombre(){
         return nombre;
     }
@@ -33,5 +33,17 @@ public class Cliente {
     }
     public void setDireccion(String direccion){
         this.direccion=direccion;
+    }
+    public String getBanco() {return banco;}
+    public void setBanco(String banco) {this.banco = banco;}
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "identificador='" + identificador + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", banco='" + banco + '\'' +
+                '}';
     }
 }
